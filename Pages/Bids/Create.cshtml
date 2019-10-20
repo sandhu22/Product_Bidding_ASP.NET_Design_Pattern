@@ -1,0 +1,57 @@
+﻿@page
+@model Product_Bidding.Pages.Bids.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+    
+
+
+
+
+    <header class="masthead">
+        <div class="container" style="height:50vh" >
+            <div class="intro-text">
+                <div class="intro-lead-in">Create Bid</div>
+              
+            
+            </div>
+        </div>
+    </header>
+        <hr />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Bid.ProductId" class="control-label"></label>
+                            <select asp-for="Bid.ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Bid.BuyerId" class="control-label"></label>
+                            <select asp-for="Bid.BuyerId" class="form-control" asp-items="ViewBag.BuyerId"></select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Bid.SellerId" class="control-label"></label>
+                            <select asp-for="Bid.SellerId" class="form-control" asp-items="ViewBag.SellerId"></select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Bid.BidPrice" class="control-label"></label>
+                            <input asp-for="Bid.BidPrice" class="form-control" />
+                            <span asp-validation-for="Bid.BidPrice" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+
+  
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,66 @@
+﻿@page
+@model Product_Bidding.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<header class="masthead">
+    <div class="container" style="height:50vh">
+        <div class="intro-text">
+            <div class="intro-lead-in"> All Product </div>
+
+
+        </div>
+    </div>
+</header>
+
+<div>
+    <div class="container">
+        <hr />
+
+        <p>
+            <a class="btn btn-primary" asp-page="Create">Create New Product</a>
+        </p>
+        <table class="table table-striped table-secondary">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Product[0].ProductName)
+                    </th>
+                    <th>
+                       @Html.DisplayNameFor(model => model.Product[0].StartingPrice)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Product[0].IsSold)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Product)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td>
+                            $@Html.DisplayFor(modelItem => item.StartingPrice)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsSold)
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a class="btn btn-primary" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                            <a class="btn btn-primary" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+ </div>
+</div>

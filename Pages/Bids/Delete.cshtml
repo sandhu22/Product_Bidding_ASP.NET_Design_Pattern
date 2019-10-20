@@ -1,0 +1,59 @@
+﻿@page
+@model Product_Bidding.Pages.Bids.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<header class="masthead">
+    <div class="container" style="height:50vh">
+        <div class="intro-text">
+            <div class="intro-lead-in">Delete Bid</div>
+
+
+        </div>
+    </div>
+</header>
+<hr />
+<div class="container" >
+    
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+      
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Bid.Buyer)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Bid.Buyer.BuyerRegistrationId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Bid.Seller)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Bid.Seller.SellerRegistrationNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Bid.Product)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Bid.Product.ProductRegistrationId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Bid.BidPrice)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Bid.BidPrice)
+            </dd>
+        </dl>
+
+        <form method="post">
+            <input type="hidden" asp-for="Bid.Id" />
+            <input type="submit" value="Delete" class="btn btn-primary" /> |
+           
+        </form>
+    </div>
+   </div>

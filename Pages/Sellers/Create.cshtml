@@ -1,0 +1,49 @@
+﻿@page
+@model Product_Bidding.Pages.Sellers.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<header class="masthead">
+    <div class="container" style="height:50vh">
+        <div class="intro-text">
+            <div class="intro-lead-in"> Create  Seller </div>
+
+
+        </div>
+    </div>
+</header>
+
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Seller.SellerName" class="control-label"></label>
+                        <input asp-for="Seller.SellerName" class="form-control" />
+                        <span asp-validation-for="Seller.SellerName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Seller.ContactNumber" class="control-label"></label>
+                        <input asp-for="Seller.ContactNumber" class="form-control" />
+                        <span asp-validation-for="Seller.ContactNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+      
+
+        </div>
+    </div>
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

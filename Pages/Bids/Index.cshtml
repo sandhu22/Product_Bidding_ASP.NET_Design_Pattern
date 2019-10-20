@@ -1,0 +1,73 @@
+﻿@page
+@model Product_Bidding.Pages.Bids.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<header class="masthead">
+    <div class="container" style="height:50vh">
+        <div class="intro-text">
+            <div class="intro-lead-in">All Bids</div>
+
+
+        </div>
+    </div>
+</header>
+<hr />
+<div class="container">
+    <p>
+        <a class="btn btn-primary" asp-page="Create">Create New Bid</a>
+    </p>
+    <table class="table table-striped table-secondary">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bid[0].Buyer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bid[0].Seller)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bid[0].Product)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bid[0].BidPrice)
+                </th>
+                <th>
+                    StartingPrice
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Bid)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Buyer.BuyerRegistrationId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Seller.SellerRegistrationNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.ProductRegistrationId)
+                    </td>
+                    <td>
+                       $@Html.DisplayFor(modelItem => item.BidPrice)
+                    </td>
+                      <td>
+                       $@Html.DisplayFor(modelItem => item.Product.StartingPrice)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a class="btn btn-primary" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a class="btn btn-primary" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>

@@ -1,0 +1,47 @@
+﻿@page
+@model Product_Bidding.Pages.Buyers.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<header class="masthead">
+    <div class="container" style="height:50vh">
+        <div class="intro-text">
+            <div class="intro-lead-in"> Buyer Details</div>
+
+
+        </div>
+    </div>
+</header>
+<hr />
+<div>
+    <div class="container">
+
+
+        <div>
+
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Buyer.BuyerName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Buyer.BuyerName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Buyer.BuyerAccountNumber)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Buyer.BuyerAccountNumber)
+                </dd>
+            </dl>
+        </div>
+        <div>
+            <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Buyer.Id">Edit</a> |
+           
+        </div>
+    </div>
+</div>
